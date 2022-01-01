@@ -43,4 +43,4 @@ for i in range(0, len(lines)):
 			j+=1
 			base64str += lines[i+j]
 		#base64str = base64str.replace("\\n", "\n")
-		print(decode_base64_package(base64str.decode()))
+		print(decode_base64_package(base64str).decode())
