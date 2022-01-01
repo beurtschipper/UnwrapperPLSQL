@@ -21,15 +21,8 @@ def decode_base64_package(base64str):
 	return zlib.decompress(bytes(decoded))
 	
 
-sys.stderr.write("=== Oracle 10g/11g PL/SQL unwrapper 0.2 - by Niels Teusink - blog.teusink.net ===\n\n" )
-if len(sys.argv) < 2:
-	sys.stderr.write("Usage: %s infile.plb [outfile]\n" % sys.argv[0])
-	sys.exit(1)
-
 infile = open(sys.argv[1])
-outfile = None
-if len(sys.argv) == 3:
-	outfile = open(sys.argv[2], 'w')
+
 
 lines = infile.readlines()
 for i in range(0, len(lines)):
@@ -42,5 +35,5 @@ for i in range(0, len(lines)):
 		while len(base64str) < base64len:
 			j+=1
 			base64str += lines[i+j]
-		#base64str = base64str.replace("\\n", "\n")
+
 		print(decode_base64_package(base64str).decode())
