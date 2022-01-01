@@ -42,8 +42,8 @@ for i in range(0, len(lines)):
 		while len(base64str) < base64len:
 			j+=1
 			base64str += lines[i+j]
-		base64str = base64str.replace("\n","")
+		base64str = base64str.replace(b'\n',b'')
 		if outfile:
-			outfile.write(decode_base64_package(base64str) + "\n")
+			outfile.write(decode_base64_package(base64str) + b'\n')
 		else:
 			print(decode_base64_package(base64str))
